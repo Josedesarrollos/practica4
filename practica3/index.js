@@ -6,7 +6,7 @@ const nunjucks = require('nunjucks');
 const session=require('express-session');
 const methodOverride=require('method-override');
 
-mongoose.connect('mongodb://mongodb:27017/juegosPractica43');
+mongoose.connect('mongodb://localhost:27017/juegosPractica44');
 //iniciamos los usuarios
 
 

@@ -96,7 +96,7 @@ router.get('/editar/:id', auth, (req, res) => {
 //ruta que recoge la petición de los datos del juego nuevo
 router.post("/", auth,  upload.single('img'), (req, res) => {
  
-  
+
     let nuevoJuego = new juego({
       nombre: req.body.nombre,
       descripcion: req.body.descripcion,
@@ -104,7 +104,6 @@ router.post("/", auth,  upload.single('img'), (req, res) => {
       edad: req.body.edad,
       tipo: req.body.tipo,
       precio: req.body.precio,
-      imagen: req.body.imagen,
       jugadores:req.body.jugadores,
     });
     nuevoJuego
@@ -123,7 +122,7 @@ router.post("/", auth,  upload.single('img'), (req, res) => {
 
 //recoge los datos del formulario al editar el juego
 router.post("/:id", auth,  upload.single('img'), (req, res)=>{
-  
+ 
 juego.findByIdAndUpdate(req.params.id,
    {$set:{
       nombre: req.body.nombre,
@@ -132,7 +131,7 @@ juego.findByIdAndUpdate(req.params.id,
       tipo: req.body.tipo,
       precio: req.body.precio,
       jugadores:req.body.jugadores,
-      img:req.body.filename
+      img: req.file.filename
     
     }},{new:true}
     ).then(resultado=>
